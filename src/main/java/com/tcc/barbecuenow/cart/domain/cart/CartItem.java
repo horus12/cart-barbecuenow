@@ -1,4 +1,4 @@
-package com.tcc.barbecuenow.cart.domain;
+package com.tcc.barbecuenow.cart.domain.cart;
 
 import lombok.*;
 import org.springframework.data.annotation.Id;

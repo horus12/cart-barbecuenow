@@ -1,7 +1,7 @@
-package com.tcc.barbecuenow.cart.controller;
+package com.tcc.barbecuenow.cart.controller.api;
 
-import com.tcc.barbecuenow.cart.controller.request.AddProductRequest;
-import com.tcc.barbecuenow.cart.controller.request.CreateCartRequest;
+import com.tcc.barbecuenow.cart.controller.domain.request.cart.AddProductRequest;
+import com.tcc.barbecuenow.cart.controller.domain.request.cart.CreateCartRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,4 +1,4 @@
-package com.tcc.barbecuenow.cart.controller.request;
+package com.tcc.barbecuenow.cart.controller.domain.request.cart;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
