@@ -1,7 +1,6 @@
-package com.tcc.barbecuenow.cart.domain;
+package com.tcc.barbecuenow.cart.domain.cart;
 
 import lombok.*;
-import org.apache.tomcat.jni.Local;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 

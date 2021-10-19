@@ -1,9 +1,9 @@
-package com.tcc.barbecuenow.cart.controller;
+package com.tcc.barbecuenow.cart.controller.api;
 
-import com.tcc.barbecuenow.cart.controller.request.AddProductRequest;
-import com.tcc.barbecuenow.cart.controller.request.CreateCartRequest;
-import com.tcc.barbecuenow.cart.controller.request.DeleteProductRequest;
-import com.tcc.barbecuenow.cart.controller.request.UpdateProductRequest;
+import com.tcc.barbecuenow.cart.controller.domain.request.cart.AddProductRequest;
+import com.tcc.barbecuenow.cart.controller.domain.request.cart.CreateCartRequest;
+import com.tcc.barbecuenow.cart.controller.domain.request.cart.DeleteProductRequest;
+import com.tcc.barbecuenow.cart.controller.domain.request.cart.UpdateProductRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,14 +1,15 @@
 package com.tcc.barbecuenow.cart.controller;
 
-import com.tcc.barbecuenow.cart.controller.request.AddProductRequest;
-import com.tcc.barbecuenow.cart.controller.request.CreateCartRequest;
-import com.tcc.barbecuenow.cart.controller.request.DeleteProductRequest;
-import com.tcc.barbecuenow.cart.controller.request.UpdateProductRequest;
-import com.tcc.barbecuenow.cart.domain.Cart;
-import com.tcc.barbecuenow.cart.usecase.AddProductUseCase;
-import com.tcc.barbecuenow.cart.usecase.CreateCartUseCase;
-import com.tcc.barbecuenow.cart.usecase.DeleteProductUseCase;
-import com.tcc.barbecuenow.cart.usecase.UpdateProductUseCase;
+import com.tcc.barbecuenow.cart.controller.api.CartApi;
+import com.tcc.barbecuenow.cart.controller.domain.request.cart.AddProductRequest;
+import com.tcc.barbecuenow.cart.controller.domain.request.cart.CreateCartRequest;
+import com.tcc.barbecuenow.cart.controller.domain.request.cart.DeleteProductRequest;
+import com.tcc.barbecuenow.cart.controller.domain.request.cart.UpdateProductRequest;
+import com.tcc.barbecuenow.cart.domain.cart.Cart;
+import com.tcc.barbecuenow.cart.usecase.cart.AddProductUseCase;
+import com.tcc.barbecuenow.cart.usecase.cart.CreateCartUseCase;
+import com.tcc.barbecuenow.cart.usecase.cart.DeleteProductUseCase;
+import com.tcc.barbecuenow.cart.usecase.cart.UpdateProductUseCase;
 import com.tcc.barbecuenow.cart.util.ErrorHandler;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
