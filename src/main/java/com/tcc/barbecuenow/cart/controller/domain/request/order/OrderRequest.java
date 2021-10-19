@@ -22,7 +22,5 @@ public class OrderRequest {
 
     @NonNull
     private Address address;
-
-    private String status = "pending";
 }
 

@@ -3,14 +3,20 @@ package com.tcc.barbecuenow.cart.usecase.order;
 import com.tcc.barbecuenow.cart.controller.domain.request.order.OrderRequest;
 import com.tcc.barbecuenow.cart.data.order.OrderMongoRepository;
 import com.tcc.barbecuenow.cart.domain.order.Order;
+import com.tcc.barbecuenow.cart.domain.order.OrderStatus;
+import com.tcc.barbecuenow.cart.usecase.orderSequence.OrderSequenceUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @RequiredArgsConstructor
 @Service
 public class CreateOrderUseCase {
 
     private final OrderMongoRepository orderMongoRepository;
+    private final OrderSequenceUseCase orderSequenceUseCase;
 
     public Order execute(OrderRequest request) throws Exception{
 
@@ -19,7 +25,9 @@ public class CreateOrderUseCase {
                 .totalTax(request.getTotalTax())
                 .products(request.getProducts())
                 .address(request.getAddress())
-                .status(request.getStatus())
+                .status(OrderStatus.PENDING.toString())
+                .orderNumber(orderSequenceUseCase.execute())
+                .createdDate(LocalDateTime.now())
                 .build();
 
         orderMongoRepository.save(order);

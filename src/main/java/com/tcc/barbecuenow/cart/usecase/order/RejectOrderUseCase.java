@@ -3,6 +3,7 @@ package com.tcc.barbecuenow.cart.usecase.order;
 import com.tcc.barbecuenow.cart.controller.domain.request.order.RejectRequest;
 import com.tcc.barbecuenow.cart.data.order.OrderMongoRepository;
 import com.tcc.barbecuenow.cart.domain.order.Order;
+import com.tcc.barbecuenow.cart.domain.order.OrderStatus;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
@@ -19,13 +20,13 @@ public class RejectOrderUseCase {
 
         if(order.isPresent()){
             Order _order = order.get();
-            String currentOrderStatus = _order.getStatus();
+            OrderStatus currentOrderStatus =  OrderStatus.valueOf(_order.getStatus());
 
-            if(currentOrderStatus.equals("rejected")){
+            if(currentOrderStatus.equals(OrderStatus.REJECTED)){
                 throw new Exception("Status is already rejected");
             }
 
-            _order.setStatus("rejected");
+            _order.setStatus(OrderStatus.REJECTED.toString());
             _order.setRejectJustification(rejectRequest.getRejectJustification());
 
             orderMongoRepository.save(_order);
