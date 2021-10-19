@@ -2,7 +2,7 @@ package com.tcc.barbecuenow.cart.controller;
 
 import com.tcc.barbecuenow.cart.controller.api.OrdersApi;
 import com.tcc.barbecuenow.cart.controller.domain.request.order.OrderRequest;
-import com.tcc.barbecuenow.cart.controller.domain.request.order.RejectOrderRequest;
+import com.tcc.barbecuenow.cart.controller.domain.request.order.RejectRequest;
 import com.tcc.barbecuenow.cart.usecase.order.ChangeStatusUseCase;
 import com.tcc.barbecuenow.cart.usecase.order.CreateOrderUseCase;
 import com.tcc.barbecuenow.cart.usecase.order.GetOrderUseCase;
@@ -63,16 +63,15 @@ public class OrdersController implements OrdersApi {
         }catch (Exception e) {
             if (e.getMessage().equals("Order_not_found"))
                 return new ResponseEntity<>("", HttpStatus.BAD_REQUEST);
-
             else
                 return new ResponseEntity<>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @Override
-    public ResponseEntity<?> rejectOrder(RejectOrderRequest rejectOrderRequest, String orderId){
+    public ResponseEntity<?> rejectOrder(RejectRequest rejectRequest, String orderId){
         try{
-            rejectOrderUseCase.execute(rejectOrderRequest, orderId);
+            rejectOrderUseCase.execute(rejectRequest, orderId);
             return new ResponseEntity<>(HttpStatus.OK);
         }catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);

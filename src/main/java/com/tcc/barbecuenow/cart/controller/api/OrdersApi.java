@@ -1,7 +1,7 @@
 package com.tcc.barbecuenow.cart.controller.api;
 
 import com.tcc.barbecuenow.cart.controller.domain.request.order.OrderRequest;
-import com.tcc.barbecuenow.cart.controller.domain.request.order.RejectOrderRequest;
+import com.tcc.barbecuenow.cart.controller.domain.request.order.RejectRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,5 +19,5 @@ public interface OrdersApi {
     ResponseEntity<?> changeStatus(@PathVariable String orderId);
 
     @PutMapping("/rejectOrder/{orderId}")
-    ResponseEntity<?> rejectOrder(@RequestBody RejectOrderRequest rejectOrderRequest, @PathVariable String orderId);
+    ResponseEntity<?> rejectOrder(@RequestBody RejectRequest rejectRequest, @PathVariable String orderId);
 }

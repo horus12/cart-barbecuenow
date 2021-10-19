@@ -1,11 +1,10 @@
 package com.tcc.barbecuenow.cart.controller.domain.request.order;
 
-import lombok.Data;
-import lombok.NonNull;
+import lombok.*;
 
 @Data
-public class RejectOrderRequest {
-
+@NoArgsConstructor
+public class RejectRequest {
     @NonNull
     private String rejectJustification;
 }

@@ -4,7 +4,6 @@ import com.tcc.barbecuenow.cart.data.order.OrderMongoRepository;
 import com.tcc.barbecuenow.cart.domain.order.Order;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -18,6 +17,10 @@ public class ChangeStatusUseCase {
         if(order.isPresent()){
             Order _order = order.get();
             String currentOrderStatus = _order.getStatus();
+
+            if(currentOrderStatus.equals("rejected")){
+                throw new Exception("Status cannot be changed");
+            }
 
             switch (currentOrderStatus){
                 case "pending":
@@ -35,7 +38,7 @@ public class ChangeStatusUseCase {
 
             orderMongoRepository.save(_order);
         } else {
-            throw new Exception("Order_not_found");
+            throw new Exception("Order not found");
         }
     }
 }

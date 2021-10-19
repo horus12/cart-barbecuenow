@@ -27,6 +27,24 @@ public class Cart {
     private List<CartItem> items;
 
     public void addItemToCart(CartItem item) {
-        items.add(item);
+        if (item != null && items.contains(item)) {
+            items.stream()
+                    .filter(s -> s.getId().equals(item.getId()))
+                    .findFirst().ifPresent(oldCartItem -> oldCartItem.setQuantity(item.getQuantity()));
+        } else {
+            items.add(item);
+        }
+    }
+
+    public void removeProductFromCart(String productId) {
+        items.stream()
+                .filter(s -> s.getId().equals(productId))
+                .findFirst().ifPresent(cartItem -> items.remove(cartItem));
+    }
+
+    public void updateProductQuantity(CartItem item) {
+        items.stream()
+                .filter(s -> s.getId().equals(item.getId()))
+                .findFirst().ifPresent(cartItem -> cartItem.setQuantity(item.getQuantity()));
     }
 }
