@@ -14,8 +14,5 @@ public class DeleteProductRequest {
     String idToken;
 
     @NonNull
-    String cartId;
-
-    @NonNull
-    String ItemId;
+    String itemId;
 }

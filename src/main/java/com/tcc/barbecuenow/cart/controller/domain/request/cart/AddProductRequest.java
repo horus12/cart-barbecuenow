@@ -15,8 +15,5 @@ public class AddProductRequest {
     String idToken;
 
     @NonNull
-    String cartId;
-
-    @NonNull
     CartItem cartItem;
 }

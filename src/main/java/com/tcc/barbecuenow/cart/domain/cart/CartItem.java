@@ -15,4 +15,10 @@ public class CartItem {
 
     private int Quantity;
 
+    private String name;
+
+    private String defaultImage;
+
+    private Double price;
+
 }

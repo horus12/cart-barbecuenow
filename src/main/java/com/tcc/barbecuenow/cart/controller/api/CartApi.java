@@ -12,14 +12,17 @@ import org.springframework.web.bind.annotation.*;
 public interface CartApi {
 
     @PostMapping("/createCart")
-    ResponseEntity<?> createCategory(@RequestBody CreateCartRequest createCartRequest);
+    ResponseEntity<?> createCart(@RequestBody CreateCartRequest createCartRequest);
 
     @PostMapping("/addProduct")
     ResponseEntity<?> addProduct(@RequestBody AddProductRequest addProductRequest);
 
-    @DeleteMapping("/deleteProduct")
+    @PostMapping("/deleteProduct")
     ResponseEntity<?> deleteProduct(@RequestBody DeleteProductRequest deleteProductRequest);
 
     @PostMapping("/updateProduct")
     ResponseEntity<?> updateProduct(@RequestBody UpdateProductRequest updateProductRequest);
+
+    @GetMapping("/{userId}")
+    ResponseEntity<?> getCart(@PathVariable String userId);
 }
