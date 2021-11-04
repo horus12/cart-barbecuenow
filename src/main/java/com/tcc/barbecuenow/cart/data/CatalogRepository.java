@@ -2,7 +2,7 @@ package com.tcc.barbecuenow.cart.data;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.tcc.barbecuenow.cart.config.CatalogWebClient;
-import com.tcc.barbecuenow.cart.domain.FinalProduct;
+import com.tcc.barbecuenow.cart.domain.product.FinalProduct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

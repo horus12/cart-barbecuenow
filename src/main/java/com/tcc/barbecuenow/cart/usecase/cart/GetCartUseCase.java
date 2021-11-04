@@ -24,8 +24,6 @@ public class GetCartUseCase {
         if (cart == null)
             cart = createCartUseCase.execute(id);
 
-
-
         return cart;
     }
 }

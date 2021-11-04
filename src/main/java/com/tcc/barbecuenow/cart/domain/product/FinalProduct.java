@@ -1,7 +1,6 @@
-package com.tcc.barbecuenow.cart.domain;
+package com.tcc.barbecuenow.cart.domain.product;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 

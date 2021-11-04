@@ -23,6 +23,10 @@ public class Cart {
 
     private double totalValue;
 
+    private double tax;
+
+    private double subtotal;
+
     private LocalDate createdDate;
 
     private List<CartItem> items;
@@ -60,9 +64,10 @@ public class Cart {
     }
 
     public void calculateTotalValue(){
-        this.totalValue = 0;
+        this.subtotal = 0;
         for(CartItem item: items){
-            this.totalValue += item.getPrice() * item.getQuantity();
+            this.subtotal += item.getPrice() * item.getQuantity();
         }
+        this.totalValue = this.subtotal + this.tax;
     }
 }

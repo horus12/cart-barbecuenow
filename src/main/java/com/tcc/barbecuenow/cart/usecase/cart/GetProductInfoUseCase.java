@@ -2,7 +2,7 @@ package com.tcc.barbecuenow.cart.usecase.cart;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.tcc.barbecuenow.cart.data.CatalogRepository;
-import com.tcc.barbecuenow.cart.domain.FinalProduct;
+import com.tcc.barbecuenow.cart.domain.product.FinalProduct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

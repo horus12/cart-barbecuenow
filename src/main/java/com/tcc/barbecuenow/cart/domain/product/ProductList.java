@@ -1,4 +1,4 @@
-package com.tcc.barbecuenow.cart.domain;
+package com.tcc.barbecuenow.cart.domain.product;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
