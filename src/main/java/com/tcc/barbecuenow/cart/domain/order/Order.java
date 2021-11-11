@@ -1,10 +1,10 @@
 package com.tcc.barbecuenow.cart.domain.order;
 
+import com.tcc.barbecuenow.cart.domain.cart.CartItem;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -23,15 +23,21 @@ public class Order {
 
     private String userId;
 
+    private String userName;
+
     private Double totalPrice;
 
-    private Double totalTax;
+    private Double subTotalPrice;
+
+    private Double tax;
 
     private Address address;
 
-    private List<Item> products;
+    private List<CartItem> products;
 
     private int orderNumber;
+
+    private PaymentType paymentType;
 
     private String rejectJustification;
 

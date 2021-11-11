@@ -20,4 +20,15 @@ public class TokenHelper {
         else return null;
 
     }
+    public String getUserName(String token){
+        UserRecord decodedToken;
+        try {
+            decodedToken = FirebaseAuth.getInstance().getUser(token);
+        } catch (Exception e) {
+            return null;
+        }
+
+        if (decodedToken != null) return decodedToken.getDisplayName();
+        else return null;
+    }
 }

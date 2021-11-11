@@ -11,13 +11,16 @@ public class OrderSequenceUseCase {
 
     private final SequenceMongoRepository sequenceMongoRepository;
 
-    public int execute(){
+    public int execute() {
+        Sequence sequence;
+        try {
+            sequence = sequenceMongoRepository.findAll().get(0);
+        } catch (Exception e) {
+            sequence = Sequence.builder().sequence(0).build();
+        }
+        sequence.setSequence(sequence.getSequence() + 1);
 
-         Sequence sequence = sequenceMongoRepository.findAll().get(0);
-
-         sequence.setSequence(sequence.getSequence()+1);
-
-         sequenceMongoRepository.save(sequence);
+        sequenceMongoRepository.save(sequence);
 
         return sequence.getSequence();
     }
