@@ -16,6 +16,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
 
 @RequiredArgsConstructor
 @Service
@@ -52,7 +55,8 @@ public class CreateOrderUseCase {
                 .paymentType(translatePaymentType(request.getPaymentTypeRequest()))
                 .status(OrderStatus.PENDING.toString())
                 .orderNumber(orderSequenceUseCase.execute())
-                .createdDate(LocalDateTime.now())
+                .createdDate(LocalDateTime.now(ZoneOffset.UTC))
+                .isFinished(false)
                 .build();
 
         orderMongoRepository.save(order);

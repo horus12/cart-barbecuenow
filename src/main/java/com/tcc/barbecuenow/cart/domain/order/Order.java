@@ -42,4 +42,6 @@ public class Order {
     private String rejectJustification;
 
     private LocalDateTime createdDate;
+
+    private Boolean isFinished;
 }

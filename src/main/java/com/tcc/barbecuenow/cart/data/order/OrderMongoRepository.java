@@ -10,4 +10,6 @@ public interface OrderMongoRepository extends MongoRepository<Order, String> {
     List<Order> findAllByStatus(String status);
 
     Order save(final Order order);
+
+    List<Order> findAllByUserId(String userId);
 }

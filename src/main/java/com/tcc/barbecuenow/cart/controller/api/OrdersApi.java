@@ -20,4 +20,7 @@ public interface OrdersApi {
 
     @PutMapping("/rejectOrder/{orderId}")
     ResponseEntity<?> rejectOrder(@RequestBody RejectRequest rejectRequest, @PathVariable String orderId);
+
+    @GetMapping(path = "/user/{userId}")
+    ResponseEntity<?> getOrdersByUser(@PathVariable String userId);
 }
