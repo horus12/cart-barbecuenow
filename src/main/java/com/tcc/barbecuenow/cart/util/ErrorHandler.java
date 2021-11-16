@@ -18,6 +18,8 @@ public class ErrorHandler {
 
         if (e.getMessage().equals("card_rejected")) return new ResponseEntity<>(HttpStatus.PAYMENT_REQUIRED);
 
+        if (e.getMessage().equals("order_not_found")) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
         return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

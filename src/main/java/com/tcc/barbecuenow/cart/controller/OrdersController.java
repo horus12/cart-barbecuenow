@@ -27,6 +27,7 @@ public class OrdersController implements OrdersApi {
     private final ChangeStatusUseCase changeOrderStatusUseCase;
     private final RejectOrderUseCase rejectOrderUseCase;
     private final GetOrderByUserUseCase getOrderByUserUseCase;
+    private final GetOrderDetailUseCase getOrderDetailUseCase;
     private final ErrorHandler errorHandler;
 
 
@@ -82,6 +83,18 @@ public class OrdersController implements OrdersApi {
         OrderByUserResponse response;
         try {
             response = getOrderByUserUseCase.execute(userId);
+        } catch (Exception e) {
+            return errorHandler.execute(e);
+        }
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<?> getOrderDetail(String userId, int orderNumber) {
+        Order response;
+        try {
+            response = getOrderDetailUseCase.execute(userId,orderNumber);
         } catch (Exception e) {
             return errorHandler.execute(e);
         }

@@ -23,4 +23,7 @@ public interface OrdersApi {
 
     @GetMapping(path = "/user/{userId}")
     ResponseEntity<?> getOrdersByUser(@PathVariable String userId);
+
+    @GetMapping(path = "/user/{userId}/{orderNumber}")
+    ResponseEntity<?> getOrderDetail(@PathVariable String userId,@PathVariable int orderNumber);
 }
