@@ -32,6 +32,7 @@ public class ChangeStatusUseCase {
                     break;
                 case DELIVERY:
                     _order.setStatus(OrderStatus.FINISHED.toString());
+                    _order.setIsFinished(true);
                     break;
                 case FINISHED:
                     throw new Exception("Order already in final status");

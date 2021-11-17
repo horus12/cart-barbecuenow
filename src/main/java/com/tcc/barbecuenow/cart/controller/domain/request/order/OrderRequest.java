@@ -12,6 +12,7 @@ public class OrderRequest {
     @NonNull
     private PaymentTypeRequest paymentTypeRequest;
 
+    @NonNull
     private Address address;
 }
 

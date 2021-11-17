@@ -57,6 +57,7 @@ public class CreateOrderUseCase {
                 .status(OrderStatus.PENDING.toString())
                 .orderNumber(orderSequenceUseCase.execute())
                 .createdDate(LocalDateTime.now(ZoneOffset.UTC))
+                .address(request.getAddress())
                 .isFinished(false)
                 .build();
 

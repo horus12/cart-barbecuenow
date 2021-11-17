@@ -10,8 +10,15 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Address {
-    private String address;
-    private String zipCode;
-    private String complement;
-    private int number;
+    private String street;
+
+    private String number;
+
+    private String cep;
+
+    private String district;
+
+    private String city;
+
+    private String state;
 }

@@ -27,6 +27,7 @@ public class RejectOrderUseCase {
             }
 
             _order.setStatus(OrderStatus.REJECTED.toString());
+            _order.setIsFinished(true);
             _order.setRejectJustification(rejectRequest.getRejectJustification());
 
             orderMongoRepository.save(_order);
