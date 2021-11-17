@@ -3,7 +3,6 @@ package com.tcc.barbecuenow.cart.usecase.cart;
 
 import com.tcc.barbecuenow.cart.data.cart.CartRepository;
 import com.tcc.barbecuenow.cart.domain.cart.Cart;
-import com.tcc.barbecuenow.cart.usecase.cart.CreateCartUseCase;
 import com.tcc.barbecuenow.cart.util.TokenHelper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

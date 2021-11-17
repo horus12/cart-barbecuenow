@@ -28,6 +28,7 @@ public class CreateOrderUseCase {
     private final OrderSequenceUseCase orderSequenceUseCase;
     private final CartRepository cartRepository;
     private final TokenHelper tokenHelper;
+    private final RemoveFromStockUseCase removeFromStockUseCase;
     private final PaymentCardValidationUseCase paymentCardValidationUseCase;
 
     public Order execute(OrderRequest request) throws Exception {
@@ -60,7 +61,7 @@ public class CreateOrderUseCase {
                 .build();
 
         orderMongoRepository.save(order);
-
+        removeFromStockUseCase.execute(cart.getItems());
         cartRepository.delete(cart);
 
         return order;
