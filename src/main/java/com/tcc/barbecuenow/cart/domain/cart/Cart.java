@@ -5,6 +5,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -29,7 +31,7 @@ public class Cart {
 
     private LocalDate createdDate;
 
-    private List<CartItem> items;
+    private List<CartItem> items ;
 
     public void addItemToCart(CartItem item) {
 
@@ -44,6 +46,7 @@ public class Cart {
                     .filter(s -> s.getId().equals(item.getId()))
                     .findFirst().ifPresent(oldCartItem -> oldCartItem.setQuantity(oldCartItem.getQuantity() + item.getQuantity()));
         } else {
+            if(items.isEmpty()) items = new ArrayList<>();
             items.add(item);
         }
         calculateTotalValue();
