@@ -52,6 +52,7 @@ public class CreateOrderUseCase {
                 .subTotalPrice(cart.getSubtotal())
                 .tax(cart.getTax())
                 .userName(name)
+                .email(email)
                 .products(cart.getItems())
                 .paymentType(translatePaymentType(request.getPaymentTypeRequest()))
                 .status(OrderStatus.PENDING.toString())

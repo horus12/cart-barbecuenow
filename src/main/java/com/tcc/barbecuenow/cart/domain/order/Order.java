@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Order {
+public class Order implements Comparable<Order>{
 
     @Id
     private String id;
@@ -24,6 +24,8 @@ public class Order {
     private String userId;
 
     private String userName;
+
+    private String email;
 
     private Double totalPrice;
 
@@ -44,4 +46,9 @@ public class Order {
     private LocalDateTime createdDate;
 
     private Boolean isFinished;
+
+    @Override
+    public int compareTo(Order o) {
+        return getCreatedDate().compareTo(o.getCreatedDate());
+    }
 }

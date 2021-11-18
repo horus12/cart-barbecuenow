@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -30,6 +31,8 @@ public class GetOrderByUserUseCase {
         List<Order> finishedOrders = orders.stream()
                 .filter(Order::getIsFinished).collect(Collectors.toList());
 
+        Collections.sort(finishedOrders);
+        Collections.reverse(finishedOrders);
         return OrderByUserResponse.builder()
                 .inProgress(!inProgressOrders.isEmpty() ? inProgressOrders : Collections.emptyList())
                 .finished(!finishedOrders.isEmpty() ? finishedOrders : Collections.emptyList())
