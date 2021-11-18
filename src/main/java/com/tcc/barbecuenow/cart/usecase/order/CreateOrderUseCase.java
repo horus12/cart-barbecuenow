@@ -56,7 +56,7 @@ public class CreateOrderUseCase {
                 .paymentType(translatePaymentType(request.getPaymentTypeRequest()))
                 .status(OrderStatus.PENDING.toString())
                 .orderNumber(orderSequenceUseCase.execute())
-                .createdDate(LocalDateTime.now(ZoneOffset.UTC))
+                .createdDate(LocalDateTime.now(ZoneId.of("GMT-3")))
                 .address(request.getAddress())
                 .isFinished(false)
                 .build();
